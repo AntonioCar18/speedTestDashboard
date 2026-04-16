@@ -1,5 +1,6 @@
 import DashboardTCard from '../components/dashboard_tcard'
 import DashboardPCard from '../components/dashboard_pcard'
+import LogTable from '../components/log_table'
 
 let br_web = 0
 
@@ -26,10 +27,13 @@ const Dashboard = () => {
                 <DashboardTCard icon={<span>⏱️</span>} title="Avg. latency (ms)" count={0} />
             </div>
             <div className='relative px-16 mt-8 mb-4'>
-                <input className='border-2 border-gray-800 rounded-2xl p-3 w-4/4 lg:min-w-100' placeholder='Search...' type="text" />
+                <input className='border-2 border-gray-800 rounded-2xl p-3 sm:w-4/4 lg:w-1/4' placeholder='Search...' type="text" />
             </div>
             <div className="w-full h-full px-16 mt-4 lg:grid grid-cols-4 gap-8">
                 <DashboardPCard title="Example Site" web_address="www.example.com" status="Up" latency_time={50} last_checked="4h ago" uptime={99.9} />
+            </div>
+            <div className='w-full h-full px-16 mt-12'>
+                <LogTable />
             </div>
             </div>
     )

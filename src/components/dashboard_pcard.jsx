@@ -7,7 +7,7 @@ const DashboardPCard = ({ title, web_address, status, latency_time, last_checked
     const latencyColor = latency_time !== undefined ? (latency_time < 100 ? "text-green-500" : latency_time < 300 ? "text-yellow-500" : "text-red-500") : "text-gray-300";
 
     return (
-        <div className="bg-gray-800 p-8 rounded shadow w-full align-items flex flex-col">
+        <div className="bg-gray-800 p-8 rounded-xl shadow w-full align-items flex flex-col">
             <h1 className="text-2xl text-white font-bold">
                  {title}
             </h1>
