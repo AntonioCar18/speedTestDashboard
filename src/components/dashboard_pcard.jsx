@@ -1,3 +1,5 @@
+import DashboardLineChart from "./line_chart";
+
 const DashboardPCard = ({ title, web_address, status, latency_time, last_checked, uptime }) => {
 
     const statusColor = status === "Up" ? "bg-green-500" : status === "Down" ? "bg-red-500" : "bg-yellow-500";
@@ -24,6 +26,9 @@ const DashboardPCard = ({ title, web_address, status, latency_time, last_checked
                     {latency_time !== undefined ? `${latency_time} ms` : null}
                 </p>
             </div>
+            </div>
+            <div>
+                <DashboardLineChart />
             </div>
             <div className="border border-white mt-4 ">
             </div>
