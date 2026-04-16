@@ -32,7 +32,7 @@ const LogTable = ({ data }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.slice(0,10).map((entry, index) => (
+                    {data.slice(0,12).map((entry, index) => (
                         <tr key={index} className="bg-gray-900/40 hover:bg-gray-700/50 transition-colors group">
                             <td className="py-4 px-2 text-sm text-gray-400 font-mono">
                                 {entry.timestamp}

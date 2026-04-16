@@ -43,7 +43,7 @@ sites = [
     "https://dv-zvoncic-ozalj.hr",
     "https://gkicdr.hr"
 ]
-path_json = "/Users/antoniocar/Desktop/4Solutions/siteChecker/public/ping_results.json"
+path_json = "/var/www/sitechecker/ping_results.json"
 MAX_HISTORY = 20 # Koliko točaka želimo čuvati za grafikon
 
 # 1. Učitaj postojeću povijest iz JSON-a
