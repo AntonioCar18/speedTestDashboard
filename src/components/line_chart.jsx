@@ -1,53 +1,34 @@
 'use client';
 
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import React from 'react';
 
-const pingData = [
-    {
-       time: 1,
-       ping1: 50, 
-    },
-    {
-        time: 2,
-        ping1: 35,
-    },
-    {
-        time: 3,
-        ping1: 42,
-    },
-    {
-        time: 4,
-        ping1: 55,
-    },
-    {
-        time: 5,
-        ping1: 30,
-    },
-]
-
-const DashboardLineChart = () => {
+// Primamo 'data' kao prop (to je niz povijesti za tu konkretnu stranicu)
+const DashboardLineChart = ({ data }) => {
     return (
         <ResponsiveContainer width="100%" height={150}>
-        <LineChart data={pingData} margin={{top: 20, left: -32}}>
-            <XAxis
-             dataKey="time"
-             stroke="#ffffff"
-             axisLine={true}
-            />
-            <YAxis
-                stroke="#ffffff"
-                axisLine={true}
-                dataKey="ping1"
-            />
-            <Line
-              type="monotone"
-              dataKey="ping1"
-              stroke='#ffffff'
-              dot={false}
-            />
-        </LineChart>
+            <LineChart data={data} margin={{ top: 10, left: 0, right: 10, bottom: 0 }}>
+                <XAxis 
+                    dataKey="timestamp" 
+                    stroke='#ffffff'
+                />
+                <YAxis 
+                    dataKey="latency" 
+                    domain={['dataMin - 50', 'dataMax + 50']} 
+                    stroke='#ffffff'
+                />
+
+                <Line
+                    type="monotone"
+                    dataKey="latency" // Ključ iz tvog JSON-a
+                    stroke='#ffffff'  // Zelena boja kao na dizajnu
+                    strokeWidth={2}
+                    dot={false}
+                    animationDuration={1000}
+                />
+            </LineChart>
         </ResponsiveContainer>
     )
 }
 
-export default DashboardLineChart
+export default DashboardLineChart;
