@@ -1,6 +1,6 @@
 'use client';
 
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 const pingData = [
     {
@@ -21,25 +21,32 @@ const pingData = [
     },
     {
         time: 5,
-        ping1: 62,
+        ping1: 30,
     },
 ]
 
 const DashboardLineChart = () => {
     return (
-        <LineChart width={300} height={150} data={pingData} margin={{top: 30, left: -30}}>
+        <ResponsiveContainer width="100%" height={150}>
+        <LineChart data={pingData} margin={{top: 20, left: -32}}>
             <XAxis
              dataKey="time"
+             stroke="#ffffff"
+             axisLine={true}
             />
-            <YAxis>
+            <YAxis
+                stroke="#ffffff"
                 axisLine={true}
-            </YAxis>
+                dataKey="ping1"
+            />
             <Line
               type="monotone"
               dataKey="ping1"
               stroke='#ffffff'
+              dot={false}
             />
         </LineChart>
+        </ResponsiveContainer>
     )
 }
 
